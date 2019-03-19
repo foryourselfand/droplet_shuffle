@@ -2,14 +2,8 @@ public sealed class GameSystems : Feature
 {
 	public GameSystems(Contexts contexts)
 	{
-		// Input
+		Add(new CreateFingerSystem(contexts));
 
-		// Update
-
-		// View
-
-		// Events (Generated)
-
-		// Cleanup (Generated)
+		Add(new AddViewSystem(contexts));
 	}
 }
