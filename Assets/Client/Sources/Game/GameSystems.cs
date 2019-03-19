@@ -5,5 +5,11 @@ public sealed class GameSystems : Feature
 		Add(new CreateFingerSystem(contexts));
 
 		Add(new AddViewSystem(contexts));
+
+		//Events(Generated)
+		Add(new GameEventSystems(contexts));
+
+		//Cleanup(Generated)
+		Add(new GameCleanupSystems(contexts));
 	}
 }

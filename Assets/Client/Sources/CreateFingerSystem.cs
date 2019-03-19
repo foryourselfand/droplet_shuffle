@@ -1,4 +1,5 @@
 using Entitas;
+using UnityEngine;
 
 public class CreateFingerSystem : IInitializeSystem
 {
@@ -13,5 +14,6 @@ public class CreateFingerSystem : IInitializeSystem
 	{
 		var entity = _contexts.game.CreateEntity();
 		entity.AddAsset("finger");
+		entity.AddPosition(new Vector2Int(-20, -20));
 	}
 }

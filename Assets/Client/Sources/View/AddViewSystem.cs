@@ -12,17 +12,15 @@ public class AddViewSystem : ReactiveSystem<GameEntity>
 	}
 
 	protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-		=> context.CreateCollector(GameMatcher.Asset);
+		=> context.CreateCollector(GameMatcher.Asset.Added());
 
 	protected override bool Filter(GameEntity entity)
-		=> entity.hasAsset && !entity.hasView;
+		=> !entity.hasView;
 
 	protected override void Execute(List<GameEntity> entities)
 	{
 		foreach (var entity in entities)
-		{
 			entity.AddView(InstantiateView(entity));
-		}
 	}
 
 	private IView InstantiateView(GameEntity entity)
