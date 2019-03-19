@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class AddViewSystem : ReactiveSystem<GameEntity>
 {
-	private readonly Transform _parent;
+	private readonly Transform _viewParent;
 
 	public AddViewSystem(Contexts contexts) : base(contexts.game)
 	{
-		_parent = new GameObject("Views").transform;
+		_viewParent = new GameObject("Views").transform;
 	}
 
 	protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
-		=> context.CreateCollector(GameMatcher.Asset.Added());
+		=> context.CreateCollector(GameMatcher.Asset);
 
 	protected override bool Filter(GameEntity entity)
-		=> !entity.hasView;
+		=> entity.hasAsset && !entity.hasView;
 
 	protected override void Execute(List<GameEntity> entities)
 	{
@@ -26,7 +26,10 @@ public class AddViewSystem : ReactiveSystem<GameEntity>
 	private IView InstantiateView(GameEntity entity)
 	{
 		var prefab = Resources.Load<GameObject>(entity.asset.value);
-		var view = Object.Instantiate(prefab, _parent).GetComponent<IView>();
+		var parentTransform = entity.hasParentTransform ? entity.parentTransform.value : _viewParent;
+		var go = Object.Instantiate(prefab, parentTransform);
+		entity.AddTransform(go.transform);
+		var view = go.GetComponent<IView>();
 		view.Link(entity);
 		return view;
 	}

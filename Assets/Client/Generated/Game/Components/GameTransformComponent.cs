@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public ParentComponent parent { get { return (ParentComponent)GetComponent(GameComponentsLookup.Parent); } }
-    public bool hasParent { get { return HasComponent(GameComponentsLookup.Parent); } }
+    public TransformComponent transform { get { return (TransformComponent)GetComponent(GameComponentsLookup.Transform); } }
+    public bool hasTransform { get { return HasComponent(GameComponentsLookup.Transform); } }
 
-    public void AddParent(IView newValue) {
-        var index = GameComponentsLookup.Parent;
-        var component = (ParentComponent)CreateComponent(index, typeof(ParentComponent));
+    public void AddTransform(UnityEngine.Transform newValue) {
+        var index = GameComponentsLookup.Transform;
+        var component = (TransformComponent)CreateComponent(index, typeof(TransformComponent));
         component.value = newValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceParent(IView newValue) {
-        var index = GameComponentsLookup.Parent;
-        var component = (ParentComponent)CreateComponent(index, typeof(ParentComponent));
+    public void ReplaceTransform(UnityEngine.Transform newValue) {
+        var index = GameComponentsLookup.Transform;
+        var component = (TransformComponent)CreateComponent(index, typeof(TransformComponent));
         component.value = newValue;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveParent() {
-        RemoveComponent(GameComponentsLookup.Parent);
+    public void RemoveTransform() {
+        RemoveComponent(GameComponentsLookup.Transform);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class GameEntity {
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherParent;
+    static Entitas.IMatcher<GameEntity> _matcherTransform;
 
-    public static Entitas.IMatcher<GameEntity> Parent {
+    public static Entitas.IMatcher<GameEntity> Transform {
         get {
-            if (_matcherParent == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Parent);
+            if (_matcherTransform == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Transform);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherParent = matcher;
+                _matcherTransform = matcher;
             }
 
-            return _matcherParent;
+            return _matcherTransform;
         }
     }
 }

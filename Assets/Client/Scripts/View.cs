@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class View : MonoBehaviour, IView, IPositionListener, IDestroyedListener
 {
+	private Transform _transform;
+
 	public void Link(Entity entity)
 	{
 		gameObject.Link(entity);
@@ -12,9 +14,15 @@ public class View : MonoBehaviour, IView, IPositionListener, IDestroyedListener
 		e.AddDestroyedListener(this);
 	}
 
-	public void OnPosition(GameEntity entity, Vector2Int value)
+	public Transform SpecialTransform
 	{
-		transform.localPosition = new Vector2(value.x, value.y);
+		get => _transform;
+		set => _transform.parent = value;
+	}
+
+	public void OnPosition(GameEntity entity, Vector2 value)
+	{
+		transform.localPosition = value;
 	}
 
 	public void OnDestroyed(GameEntity entity)
