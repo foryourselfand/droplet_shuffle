@@ -2,7 +2,8 @@ public sealed class GameSystems : Feature
 {
 	public GameSystems(Contexts contexts)
 	{
-		Add(new CreateGangSystem(contexts));
+		Add(new SetupGameStateSystem(contexts));
+		Add(new FirstCreateSystem(contexts));
 
 		Add(new AddViewSystem(contexts));
 
