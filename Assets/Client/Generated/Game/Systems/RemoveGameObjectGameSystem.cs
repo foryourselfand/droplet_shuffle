@@ -9,18 +9,18 @@
 using System.Collections.Generic;
 using Entitas;
 
-public sealed class RemoveNeedToCreateGlassGameSystem : ICleanupSystem {
+public sealed class RemoveGameObjectGameSystem : ICleanupSystem {
 
     readonly IGroup<GameEntity> _group;
     readonly List<GameEntity> _buffer = new List<GameEntity>();
 
-    public RemoveNeedToCreateGlassGameSystem(Contexts contexts) {
-        _group = contexts.game.GetGroup(GameMatcher.NeedToCreateGlass);
+    public RemoveGameObjectGameSystem(Contexts contexts) {
+        _group = contexts.game.GetGroup(GameMatcher.GameObject);
     }
 
     public void Cleanup() {
         foreach (var e in _group.GetEntities(_buffer)) {
-            e.isNeedToCreateGlass = false;
+            e.RemoveGameObject();
         }
     }
 }
