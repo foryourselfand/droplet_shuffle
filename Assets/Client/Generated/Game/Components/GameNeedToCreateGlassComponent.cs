@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly NeedToCreateGlass needToCreateGlassComponent = new NeedToCreateGlass();
+    static readonly NeedToCreateGlassComponent needToCreateGlassComponent = new NeedToCreateGlassComponent();
 
     public bool isNeedToCreateGlass {
         get { return HasComponent(GameComponentsLookup.NeedToCreateGlass); }

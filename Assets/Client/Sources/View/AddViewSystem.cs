@@ -20,17 +20,15 @@ public class AddViewSystem : ReactiveSystem<GameEntity>
 	protected override void Execute(List<GameEntity> entities)
 	{
 		foreach (var entity in entities)
-			entity.AddView(InstantiateView(entity));
-	}
+		{
+			var prefab = Resources.Load<GameObject>(entity.asset.value);
+			var parentTransform = entity.hasParentTransform ? entity.parentTransform.value : _viewParent;
+			var go = Object.Instantiate(prefab, parentTransform);
+			entity.AddTransform(go.transform);
 
-	private IView InstantiateView(GameEntity entity)
-	{
-		var prefab = Resources.Load<GameObject>(entity.asset.value);
-		var parentTransform = entity.hasParentTransform ? entity.parentTransform.value : _viewParent;
-		var go = Object.Instantiate(prefab, parentTransform);
-		entity.AddTransform(go.transform);
-		var view = go.GetComponent<IView>();
-		view.Link(entity);
-		return view;
+			var view = go.GetComponent<IView>();
+			view.Link(entity);
+			entity.AddView(view);
+		}
 	}
 }

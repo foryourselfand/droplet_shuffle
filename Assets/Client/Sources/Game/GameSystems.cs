@@ -6,7 +6,7 @@ public sealed class GameSystems : Feature
 
 		Add(new AddViewSystem(contexts));
 
-		Add(new CreateGlassInShadowSystem(contexts));
+		Add(new CreateGlassSystem(contexts));
 
 		Add(new GameEventSystems(contexts));
 

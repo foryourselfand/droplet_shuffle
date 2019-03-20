@@ -1,3 +1,4 @@
+using System;
 using Entitas;
 using UnityEngine;
 
@@ -12,9 +13,9 @@ public class CreateShadowSystem : IInitializeSystem
 
 	public void Initialize()
 	{
-		var shadow = _contexts.game.CreateEntity();
-		shadow.AddAsset("shadow");
-		shadow.AddPosition(new Vector2(-20, -20));
-		shadow.isNeedToCreateGlass = true;
+		var shadowEntity = _contexts.game.CreateEntity();
+		shadowEntity.AddAsset("shadow");
+		shadowEntity.AddPosition(new Vector2(-20, -20));
+		shadowEntity.isNeedToCreateGlass = true;
 	}
 }

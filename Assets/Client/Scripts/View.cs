@@ -14,12 +14,6 @@ public class View : MonoBehaviour, IView, IPositionListener, IDestroyedListener
 		e.AddDestroyedListener(this);
 	}
 
-	public Transform SpecialTransform
-	{
-		get => _transform;
-		set => _transform.parent = value;
-	}
-
 	public void OnPosition(GameEntity entity, Vector2 value)
 	{
 		transform.localPosition = value;

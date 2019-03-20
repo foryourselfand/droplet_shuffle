@@ -36,7 +36,7 @@ public static class GameComponentsLookup {
         typeof(AssetComponent),
         typeof(DestroyedComponent),
         typeof(DestroyedListenerComponent),
-        typeof(NeedToCreateGlass),
+        typeof(NeedToCreateGlassComponent),
         typeof(ParentTransformComponent),
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
