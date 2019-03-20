@@ -3,6 +3,7 @@ using Entitas;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 public class FirstCreateSystem : IInitializeSystem
 {
@@ -17,9 +18,9 @@ public class FirstCreateSystem : IInitializeSystem
 	{
 		for (var i = -45; i <= 45; i += 30)
 		{
-			_contexts.game.CreateShadowAndGlass(i);
+			var dudeHolder = Random.Range(0, 3) == 0;
+			_contexts.game.CreateShadowAndGlass(i, dudeHolder);
 		}
-
 
 		var trueDudes = _contexts.game.GetEntitiesWithDudeHolder(true);
 		foreach (var trueDude in trueDudes)

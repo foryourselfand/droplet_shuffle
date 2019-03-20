@@ -6,7 +6,7 @@ public class View : MonoBehaviour, IView, IPositionListener, IDestroyedListener
 {
 	private Transform _transform;
 
-	public void Link(Entity entity)
+	public virtual void Link(Entity entity)
 	{
 		gameObject.Link(entity);
 		var e = (GameEntity) entity;
