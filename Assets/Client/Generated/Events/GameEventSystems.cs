@@ -12,5 +12,6 @@ public sealed class GameEventSystems : Feature {
         Add(new ColorEventSystem(contexts)); // priority: 0
         Add(new DestroyedEventSystem(contexts)); // priority: 0
         Add(new PositionEventSystem(contexts)); // priority: 0
+        Add(new TweenAnimationEventSystem(contexts)); // priority: 0
     }
 }

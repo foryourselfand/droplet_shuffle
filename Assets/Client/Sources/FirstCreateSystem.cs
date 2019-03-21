@@ -24,6 +24,6 @@ public class FirstCreateSystem : IInitializeSystem
 
 		var trueDudes = _contexts.game.GetEntitiesWithDudeHolder(true);
 		foreach (var trueDude in trueDudes)
-			trueDude.ReplacePosition(trueDude.position.value + new Vector2(0, 10));
+			trueDude.AddTweenAnimation("up");
 	}
 }

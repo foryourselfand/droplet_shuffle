@@ -20,11 +20,13 @@ public static class GameComponentsLookup {
     public const int Position = 9;
     public const int PositionListener = 10;
     public const int Transform = 11;
-    public const int Variables = 12;
-    public const int View = 13;
-    public const int ViewParent = 14;
+    public const int TweenAnimation = 12;
+    public const int TweenAnimationListener = 13;
+    public const int Variables = 14;
+    public const int View = 15;
+    public const int ViewParent = 16;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "Asset",
@@ -39,6 +41,8 @@ public static class GameComponentsLookup {
         "Position",
         "PositionListener",
         "Transform",
+        "TweenAnimation",
+        "TweenAnimationListener",
         "Variables",
         "View",
         "ViewParent"
@@ -57,6 +61,8 @@ public static class GameComponentsLookup {
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
         typeof(TransformComponent),
+        typeof(TweenAnimationComponent),
+        typeof(TweenAnimationListenerComponent),
         typeof(VariablesComponent),
         typeof(ViewComponent),
         typeof(ViewParentComponent)
