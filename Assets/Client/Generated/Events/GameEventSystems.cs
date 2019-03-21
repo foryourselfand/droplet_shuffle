@@ -11,7 +11,7 @@ public sealed class GameEventSystems : Feature {
     public GameEventSystems(Contexts contexts) {
         Add(new ColorEventSystem(contexts)); // priority: 0
         Add(new DestroyedEventSystem(contexts)); // priority: 0
+        Add(new GlassAnimationEventSystem(contexts)); // priority: 0
         Add(new PositionEventSystem(contexts)); // priority: 0
-        Add(new TweenAnimationEventSystem(contexts)); // priority: 0
     }
 }

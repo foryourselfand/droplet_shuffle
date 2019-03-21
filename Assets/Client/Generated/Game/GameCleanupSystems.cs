@@ -10,6 +10,7 @@ public sealed class GameCleanupSystems : Feature {
 
     public GameCleanupSystems(Contexts contexts) {
         Add(new DestroyDestroyedGameSystem(contexts));
+        Add(new RemoveAnimationCompletedGameSystem(contexts));
         Add(new RemoveGameObjectGameSystem(contexts));
     }
 }

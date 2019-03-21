@@ -8,27 +8,29 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Asset = 0;
-    public const int Color = 1;
-    public const int ColorListener = 2;
-    public const int Destroyed = 3;
-    public const int DestroyedListener = 4;
-    public const int DudeHolder = 5;
-    public const int GameObject = 6;
-    public const int ParentTransform = 7;
-    public const int PlaceNumber = 8;
-    public const int Position = 9;
-    public const int PositionListener = 10;
-    public const int Transform = 11;
-    public const int TweenAnimation = 12;
-    public const int TweenAnimationListener = 13;
-    public const int Variables = 14;
-    public const int View = 15;
-    public const int ViewParent = 16;
+    public const int AnimationCompleted = 0;
+    public const int Asset = 1;
+    public const int Color = 2;
+    public const int ColorListener = 3;
+    public const int Destroyed = 4;
+    public const int DestroyedListener = 5;
+    public const int DudeHolder = 6;
+    public const int GameObject = 7;
+    public const int GlassAnimation = 8;
+    public const int GlassAnimationListener = 9;
+    public const int ParentTransform = 10;
+    public const int PlaceNumber = 11;
+    public const int Position = 12;
+    public const int PositionListener = 13;
+    public const int Transform = 14;
+    public const int Variables = 15;
+    public const int View = 16;
+    public const int ViewParent = 17;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
+        "AnimationCompleted",
         "Asset",
         "Color",
         "ColorListener",
@@ -36,19 +38,20 @@ public static class GameComponentsLookup {
         "DestroyedListener",
         "DudeHolder",
         "GameObject",
+        "GlassAnimation",
+        "GlassAnimationListener",
         "ParentTransform",
         "PlaceNumber",
         "Position",
         "PositionListener",
         "Transform",
-        "TweenAnimation",
-        "TweenAnimationListener",
         "Variables",
         "View",
         "ViewParent"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AnimationCompletedComponent),
         typeof(AssetComponent),
         typeof(ColorComponent),
         typeof(ColorListenerComponent),
@@ -56,13 +59,13 @@ public static class GameComponentsLookup {
         typeof(DestroyedListenerComponent),
         typeof(DudeHolderComponent),
         typeof(GameObjectComponent),
+        typeof(GlassAnimationComponent),
+        typeof(GlassAnimationListenerComponent),
         typeof(ParentTransformComponent),
         typeof(PlaceNumberComponent),
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
         typeof(TransformComponent),
-        typeof(TweenAnimationComponent),
-        typeof(TweenAnimationListenerComponent),
         typeof(VariablesComponent),
         typeof(ViewComponent),
         typeof(ViewParentComponent)

@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using Entitas;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
@@ -24,6 +25,6 @@ public class FirstCreateSystem : IInitializeSystem
 
 		var trueDudes = _contexts.game.GetEntitiesWithDudeHolder(true);
 		foreach (var trueDude in trueDudes)
-			trueDude.AddTweenAnimation("up");
+			trueDude.AddGlassAnimation(1, Ease.OutQuart);
 	}
 }

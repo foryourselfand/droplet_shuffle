@@ -6,6 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public interface ITweenAnimationListener {
-    void OnTweenAnimation(GameEntity entity, string value);
+public interface IGlassAnimationListener {
+    void OnGlassAnimation(GameEntity entity, int y, DG.Tweening.Ease ease);
 }

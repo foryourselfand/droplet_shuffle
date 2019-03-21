@@ -10,6 +10,7 @@ public sealed class GameSystems : Feature
 		Add(new AddViewSystem(contexts));
 
 		Add(new SetParentSystem(contexts));
+		Add(new OnAnimationCompletedSystem(contexts));
 
 		Add(new GameEventSystems(contexts));
 

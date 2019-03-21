@@ -7,6 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 [Entitas.CodeGeneration.Attributes.DontGenerate(false)]
-public sealed class TweenAnimationListenerComponent : Entitas.IComponent {
-    public System.Collections.Generic.List<ITweenAnimationListener> value;
+public sealed class GlassAnimationListenerComponent : Entitas.IComponent {
+    public System.Collections.Generic.List<IGlassAnimationListener> value;
 }

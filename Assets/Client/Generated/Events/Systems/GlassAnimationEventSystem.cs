@@ -6,31 +6,31 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed class TweenAnimationEventSystem : Entitas.ReactiveSystem<GameEntity> {
+public sealed class GlassAnimationEventSystem : Entitas.ReactiveSystem<GameEntity> {
 
-    readonly System.Collections.Generic.List<ITweenAnimationListener> _listenerBuffer;
+    readonly System.Collections.Generic.List<IGlassAnimationListener> _listenerBuffer;
 
-    public TweenAnimationEventSystem(Contexts contexts) : base(contexts.game) {
-        _listenerBuffer = new System.Collections.Generic.List<ITweenAnimationListener>();
+    public GlassAnimationEventSystem(Contexts contexts) : base(contexts.game) {
+        _listenerBuffer = new System.Collections.Generic.List<IGlassAnimationListener>();
     }
 
     protected override Entitas.ICollector<GameEntity> GetTrigger(Entitas.IContext<GameEntity> context) {
         return Entitas.CollectorContextExtension.CreateCollector(
-            context, Entitas.TriggerOnEventMatcherExtension.Added(GameMatcher.TweenAnimation)
+            context, Entitas.TriggerOnEventMatcherExtension.Added(GameMatcher.GlassAnimation)
         );
     }
 
     protected override bool Filter(GameEntity entity) {
-        return entity.hasTweenAnimation && entity.hasTweenAnimationListener;
+        return entity.hasGlassAnimation && entity.hasGlassAnimationListener;
     }
 
     protected override void Execute(System.Collections.Generic.List<GameEntity> entities) {
         foreach (var e in entities) {
-            var component = e.tweenAnimation;
+            var component = e.glassAnimation;
             _listenerBuffer.Clear();
-            _listenerBuffer.AddRange(e.tweenAnimationListener.value);
+            _listenerBuffer.AddRange(e.glassAnimationListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnTweenAnimation(e, component.value);
+                listener.OnGlassAnimation(e, component.y, component.ease);
             }
         }
     }
