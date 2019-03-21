@@ -16,10 +16,11 @@ public class FirstCreateSystem : IInitializeSystem
 
 	public void Initialize()
 	{
-		for (var i = -45; i <= 45; i += 30)
+		for (var i = 0; i < 4; i += 1)
 		{
+			var tempPosition = i * _contexts.game.variables.positionDistance;
 			var dudeHolder = Random.Range(0, 3) == 0;
-			_contexts.game.CreateShadowAndGlass(i, dudeHolder);
+			_contexts.game.CreateShadowAndGlass(tempPosition, dudeHolder);
 		}
 
 		var trueDudes = _contexts.game.GetEntitiesWithDudeHolder(true);

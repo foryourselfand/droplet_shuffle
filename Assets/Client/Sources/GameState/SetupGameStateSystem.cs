@@ -11,6 +11,6 @@ public class SetupGameStateSystem : IInitializeSystem
 
 	public void Initialize()
 	{
-		_contexts.game.SetVariables(0, 1);
+		_contexts.game.SetVariables(0, 30);
 	}
 }

@@ -13,8 +13,5 @@ public class ColorView : View, IColorListener
 	public void OnColor(GameEntity entity, Color value)
 	{
 		GetComponent<SpriteRenderer>().color = value;
-
-		Debug.Log(GetComponent<SpriteRenderer>().color.ToString());
-		Debug.Log(value.ToString());
 	}
 }

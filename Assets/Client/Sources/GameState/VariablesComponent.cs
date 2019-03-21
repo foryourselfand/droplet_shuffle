@@ -5,5 +5,5 @@ using Entitas.CodeGeneration.Attributes;
 public class VariablesComponent : IComponent
 {
 	public int currentPlaceNumber;
-	public int distace;
+	public int positionDistance;
 }

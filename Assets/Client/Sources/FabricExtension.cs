@@ -2,13 +2,14 @@ using UnityEngine;
 
 public static class FabricExtension
 {
-	public static void CreateShadowAndGlass(this GameContext context, int x, bool isDudeHolder)
+	public static void CreateShadowAndGlass(this GameContext context, float x, bool isDudeHolder)
 	{
 		var shadowGameObject = InstantiateFromAsset("shadow");
 		var shadowEntity = context.CreateEntity();
 		shadowEntity.AddGameObject(shadowGameObject);
 		shadowEntity.AddPosition(new Vector2(x, -30));
 		shadowEntity.AddPlaceNumber(context.variables.currentPlaceNumber++);
+		shadowEntity.AddParentTransform(context.viewParent.value);
 
 		var glassEntity = context.CreateEntity();
 		glassEntity.AddGameObject(InstantiateFromAsset("glass"));

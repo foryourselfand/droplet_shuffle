@@ -12,22 +12,22 @@ public partial class GameContext {
     public VariablesComponent variables { get { return variablesEntity.variables; } }
     public bool hasVariables { get { return variablesEntity != null; } }
 
-    public GameEntity SetVariables(int newCurrentPlaceNumber, int newDistace) {
+    public GameEntity SetVariables(int newCurrentPlaceNumber, int newPositionDistance) {
         if (hasVariables) {
             throw new Entitas.EntitasException("Could not set Variables!\n" + this + " already has an entity with VariablesComponent!",
                 "You should check if the context already has a variablesEntity before setting it or use context.ReplaceVariables().");
         }
         var entity = CreateEntity();
-        entity.AddVariables(newCurrentPlaceNumber, newDistace);
+        entity.AddVariables(newCurrentPlaceNumber, newPositionDistance);
         return entity;
     }
 
-    public void ReplaceVariables(int newCurrentPlaceNumber, int newDistace) {
+    public void ReplaceVariables(int newCurrentPlaceNumber, int newPositionDistance) {
         var entity = variablesEntity;
         if (entity == null) {
-            entity = SetVariables(newCurrentPlaceNumber, newDistace);
+            entity = SetVariables(newCurrentPlaceNumber, newPositionDistance);
         } else {
-            entity.ReplaceVariables(newCurrentPlaceNumber, newDistace);
+            entity.ReplaceVariables(newCurrentPlaceNumber, newPositionDistance);
         }
     }
 
@@ -49,19 +49,19 @@ public partial class GameEntity {
     public VariablesComponent variables { get { return (VariablesComponent)GetComponent(GameComponentsLookup.Variables); } }
     public bool hasVariables { get { return HasComponent(GameComponentsLookup.Variables); } }
 
-    public void AddVariables(int newCurrentPlaceNumber, int newDistace) {
+    public void AddVariables(int newCurrentPlaceNumber, int newPositionDistance) {
         var index = GameComponentsLookup.Variables;
         var component = (VariablesComponent)CreateComponent(index, typeof(VariablesComponent));
         component.currentPlaceNumber = newCurrentPlaceNumber;
-        component.distace = newDistace;
+        component.positionDistance = newPositionDistance;
         AddComponent(index, component);
     }
 
-    public void ReplaceVariables(int newCurrentPlaceNumber, int newDistace) {
+    public void ReplaceVariables(int newCurrentPlaceNumber, int newPositionDistance) {
         var index = GameComponentsLookup.Variables;
         var component = (VariablesComponent)CreateComponent(index, typeof(VariablesComponent));
         component.currentPlaceNumber = newCurrentPlaceNumber;
-        component.distace = newDistace;
+        component.positionDistance = newPositionDistance;
         ReplaceComponent(index, component);
     }
 
